@@ -27,9 +27,7 @@ export class HabilidadesComponent implements OnInit {
         };
       });
       this.skills.map((item, i) => {
-        console.log(this.colors[this.indice.indexOf(item.type)]);
         item.color = this.colors[this.indice.indexOf(item.type)];
-        console.log(item);
       });
     });
   }
