@@ -1,0 +1,85 @@
+/**
+FontAwesome and micons
+ */
+@import url("font-awesome/css/font-awesome.min.css");
+@import url("micons/micons.css");
+
+/*
+* Estructura
+ */
+/* simple use of flex-box to create layout from <div> "grouping" tags. The key is to remember that your CSS layout solution has everything to do with the decisions you make in the HTML  */
+
+.btn-menu{
+  margin: 5px;
+  width: 200px;
+}
+button:hover {
+  font-weight: bold;
+  background-color: #c1c0bd;
+}
+.card-padding{
+  padding: 20px 8px 20px 8px;
+}
+
+.activado{
+  border-bottom: 5px solid #c1c0bd;
+}
+
+#home-icon{
+  border: none !important;
+}
+
+#img-profile{
+  height: 200px;
+  width: 200px;
+  margin-top: 6px;
+  border-radius: 50%;
+}
+
+.margin-nav{
+  margin-left: 20px;
+  margin-right: 20px;
+  width: auto !important;
+}
+
+.article {
+  padding-left: 40px;
+  padding-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+h1, h2, h3, h4, h5 {
+  display: block;
+  margin-top: auto;
+  margin-bottom: 0.75em;
+}
+
+.margin-top-negativo {
+  margin-top: -50px;
+}
+
+#lista-iconos{
+  display: inline-flex;
+  list-style: none;
+  padding: 0;
+}
+
+#lista-iconos ul li::before {
+  content: none;
+}
+
+.img-redes {
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+}
+
+.margin-auto {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#img-home{
+  width: 50%;
+}

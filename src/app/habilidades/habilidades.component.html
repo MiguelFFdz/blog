@@ -1,0 +1,14 @@
+<h2>Otros Estudios y Habilidades</h2>
+<div class="row border border-5 shadow" id="habilidades">
+  <div class="col-12 row margin-bottom-none" *ngFor="let skill of skills | sort:'type'">
+    <div class="col-2 col">
+      <h4>{{skill.skill}}</h4>
+      <h6 class="margin-bottom-none margin-top-none">{{skill.type}}</h6>
+    </div>
+    <div class="col-9 col text-left">
+      <div class="progress">
+        <div class="bar w-{{skill.value}} {{skill.color}}">{{skill.value}}%</div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,47 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
+import { MenuComponent } from './menu/menu.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HomeComponent } from './home/home.component';
+import { HabilidadesComponent } from './habilidades/habilidades.component';
+import { ExperienciaComponent } from './experiencia/experiencia.component';
+import { EstudiosComponent } from './estudios/estudios.component';
+import { BlogComponent } from './blog/blog.component';
+import { ContactarComponent } from './contactar/contactar.component';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { environment } from '../environments/environment';
+import { ArraySortPipe } from './pipes/arraySort.pipe';
+import { ArraySortDescPipe } from './pipes/arraySortDesc.pipe';
+import {APP_BASE_HREF} from '@angular/common';
+import { PerfilComponent } from './perfil/perfil.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent,
+    HomeComponent,
+    HabilidadesComponent,
+    ExperienciaComponent,
+    EstudiosComponent,
+    BlogComponent,
+    ContactarComponent,
+    ArraySortPipe,
+    ArraySortDescPipe,
+    PerfilComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFirestoreModule
   ],
-  providers: [],
+  providers: [
+    Title,
+    AngularFirestoreModule,
+    {provide: APP_BASE_HREF, useValue: '/'}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

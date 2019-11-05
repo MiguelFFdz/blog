@@ -1,0 +1,16 @@
+<h2>Experiencia Laboral</h2>
+<div class="row border border-5 shadow " id="estudios" *ngFor="let trabajo of trabajos | sortDesc:'order'">
+  <div class="col-3 col">
+    <div class="card-body text-center">
+      <h4>{{trabajo.title}}</h4>
+      <h5 >{{trabajo.date}}</h5>
+    </div>
+  </div>
+  <div class="col-9 col">
+    <div class="card-body">
+      <h4 class="background-primary text-center">{{trabajo.place}}</h4>
+      <h5>{{trabajo.category}}</h5>
+      <p>{{trabajo.description}}</p>
+    </div>
+  </div>
+</div>

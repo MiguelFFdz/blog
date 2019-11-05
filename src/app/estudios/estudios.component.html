@@ -1,0 +1,16 @@
+<h2>Estudios</h2>
+<div class="row border border-5 shadow " id="estudios" *ngFor="let estudio of estudios | sortDesc:'order'">
+    <div class="col-3 col">
+      <div class="card-body text-center">
+        <h4>{{estudio.category}}</h4>
+        <h5>{{estudio.date}}</h5>
+      </div>
+    </div>
+    <div class="col-9 col">
+      <div class="card-body">
+        <h4 class="background-primary text-center">{{estudio.title}}</h4>
+        <h5>{{estudio.place}}</h5>
+        <p>{{estudio.description}}</p>
+      </div>
+    </div>
+</div>
