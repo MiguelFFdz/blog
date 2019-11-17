@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ColectionService } from '../services/colection.service';
+import { CollectionService } from '../services/collection.service';
 
 @Component({
   selector: 'app-menu',
@@ -9,11 +9,11 @@ import { ColectionService } from '../services/colection.service';
 export class MenuComponent implements OnInit {
   menuPrincipal: any[];
 
-  constructor(private colectionService: ColectionService) {
+  constructor(private collectionService: CollectionService) {
   }
 
   ngOnInit() {
-    this.colectionService.getItems('menu').subscribe(data => {
+    this.collectionService.getItems('menu').subscribe(data => {
       this.menuPrincipal = data.map(e => {
         return {
           id: e.payload.doc.id,

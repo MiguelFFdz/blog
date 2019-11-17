@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Evento} from '../models/evento.model';
-import { ColectionService } from '../services/colection.service';
+import { CollectionService } from '../services/collection.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -11,12 +11,12 @@ import { ColectionService } from '../services/colection.service';
 export class ExperienciaComponent implements OnInit {
 
   trabajos: Evento[];
-  constructor(private titleService: Title, private colectionService: ColectionService) {
+  constructor(private titleService: Title, private collectionService: CollectionService) {
     this.titleService.setTitle('Experiencia Laboral');
   }
 
   ngOnInit() {
-    this.colectionService.getItems('jobs').subscribe(data => {
+    this.collectionService.getItems('jobs').subscribe(data => {
       this.trabajos = data.map(e => {
         return {
           id: e.payload.doc.id,

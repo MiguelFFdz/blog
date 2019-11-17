@@ -16,6 +16,9 @@ import { ArraySortPipe } from './pipes/arraySort.pipe';
 import { ArraySortDescPipe } from './pipes/arraySortDesc.pipe';
 import {APP_BASE_HREF} from '@angular/common';
 import { PerfilComponent } from './perfil/perfil.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxCaptchaModule } from 'ngx-captcha';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,11 @@ import { PerfilComponent } from './perfil/perfil.component';
     BrowserModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
+    AngularFirestoreModule,
+    FormsModule,
+    ReactiveFormsModule,
+    NgxCaptchaModule,
+    NgbModule
   ],
   providers: [
     Title,

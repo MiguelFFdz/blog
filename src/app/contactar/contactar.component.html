@@ -1,29 +1,81 @@
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Modal Body</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+  </div>
+</ng-template>
+
 <h2>Estemos en contacto...</h2>
 <div class="row border border-5 shadow article" id="home">
   <div class="col-7 margin-bottom-none padding-top-small">
-    <form action="" method="POST" class="margin-top-small">
+    <form class="margin-top-small" [formGroup]="contactForm" (ngSubmit) = "onSubmit()">
       <div class="row">
         <div class="col col-4 padding-none">
-            <label for="nombre">Nombre</label>
-            <input class="margin-right-small" type="text" name="nombre" placeholder="Name" required="required"/>
+            <label for="contactFormName">Nombre</label>
+          <!-- Name -->
+          <input type="text" formControlName="contactFormName" id="contactFormName" placeholder="Tu nombre es...">
+          <div *ngIf="submitted && form.contactFormName.errors" class="invalid-feedback">
+            <div *ngIf="form.contactFormName.errors.required">Dime tu nombre, por favor</div>
+          </div>
         </div>
         <div class="col col-4 padding-none">
-            <label for="email">Email</label>
-            <input class="margin-right-small" type="email" name="email" placeholder="E-mail" required="required"/>
+            <label for="contactFormEmail">Email</label>
+          <!-- Email -->
+          <input type="email" formControlName="contactFormEmail" id="contactFormEmail" placeholder="Y tu email...">
+          <div *ngIf="submitted && form.contactFormEmail.errors" class="invalid-feedback">
+            <div *ngIf="form.contactFormEmail.errors.required">Dime tu email, por favor</div>
+            <div *ngIf="form.contactFormEmail.errors.email">Este email no parece correcto...</div>
+          </div>
         </div>
         <div class="col col-4 padding-none">
-          <label for="asunto">Asunto</label>
-          <input class="margin-right-small" type="text" name="asunto" placeholder="Asunto" required="required"/>
+          <label for="contactFormSubject">Asunto</label>
+          <input type="subject" formControlName="contactFormSubject" id="contactFormSubject" placeholder="Hablamos de...">
+          <div *ngIf="submitted && form.contactFormSubject.errors" class="invalid-feedback">
+            <div *ngIf="form.contactFormSubject.errors.required">Especifica un asunto, por favor</div>
+          </div>
         </div>
       </div>
       <div class="row ">
         <div class="col col-12 padding-none margin-top-small">
-          <label for="mensaje">Mensaje</label>
-          <textarea class="text-area-form" name="mensaje" placeholder="Tú dirás..." required="required"></textarea>
+          <label for="contactFormMessage">Mensaje</label>
+          <textarea class="text-area-form" formControlName="contactFormMessage" id="contactFormMessage" rows="15" placeholder="Ya me vas contando..."></textarea>
+          <div *ngIf="submitted && form.contactFormMessage.errors" class="invalid-feedback">
+            <div *ngIf="form.contactFormMessage.errors.required">¿No tienes nada que decirme?</div>
+          </div>
         </div>
       </div>
-      <button class="btn btn-primary" type="submit">Send</button>
-    </form>git add
+      <div class="row ">
+        <div class="col col-12 padding-none margin-top-small">
+          <!--<input type="checkbox" formControlName="contactFormCheck" id="contactFormCheck" [ngClass]="{ 'is-invalid': submitted && form.contactFormCheck.errors }"/><span class="checkBox-text"> Security check</span>-->
+          <ngx-recaptcha2
+            [siteKey]="siteKey"
+            [size]="size"
+            [lang]="lang"
+            [theme]="theme"
+            [type]="type"
+            [useGlobalDomain]="false"
+            (reset)="handleReset()"
+            (expire)="handleExpire()"
+            (load)="handleLoad()"
+            (success)="handleSuccess($event)"
+            formControlName="recaptcha">
+          </ngx-recaptcha2>
+          <div *ngIf="submitted && form.recaptcha.errors" class="invalid-feedback">Este check de seguridad es obligatorio</div>
+        </div>
+      </div>
+
+      <input type = "submit"
+             value = "Enviar"
+             (click) = "onSubmit()" >
+    </form>
   </div>
   <div class="col-5 col">
     <img class="" src="../../assets/images/bg1.jpg" alt="Gijón">

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import {ColectionService} from '../services/colection.service';
+import {CollectionService} from '../services/collection.service';
 
 @Component({
   selector: 'app-home',
@@ -11,12 +11,12 @@ import {ColectionService} from '../services/colection.service';
 export class HomeComponent implements OnInit {
   profile: any = {};
   profileAux: any[];
-  constructor(private titleService: Title, private colectionService: ColectionService) {
+  constructor(private titleService: Title, private collectionService: CollectionService) {
     this.titleService.setTitle('Inicio');
   }
 
   ngOnInit() {
-    this.colectionService.getItems('profile').subscribe(data => {
+    this.collectionService.getItems('profile').subscribe(data => {
       this.profileAux = data.map(e => {
         return {
           id: e.payload.doc.id,

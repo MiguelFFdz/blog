@@ -97,3 +97,9 @@ h4, h5 {
   vertical-align: text-top;
   padding-top: 10px;
 }
+
+.invalid-feedback {
+  font-size: small;
+  color: crimson;
+  padding: 3px;
+}
