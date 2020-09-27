@@ -19,7 +19,8 @@ export class MenuComponent implements OnInit {
           id: e.payload.doc.id,
           ...e.payload.doc.data()
         };
-      });
+      }).filter(m=> m['activo']);
     });
   }
+
 }

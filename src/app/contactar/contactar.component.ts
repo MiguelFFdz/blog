@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { CollectionService } from '../services/collection.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -53,11 +54,12 @@ export class ContactarComponent implements OnInit {
     if (this.contactForm.invalid) {
       return;
     }
+
     // display form values on success CAMBIAR POR MODAL
-    this.collectionService.addItems('messages', this.contactForm.value);
-    this.router.navigateByUrl('/contactar', { skipLocationChange: true }).then(() => {
+    // this.collectionService.addItems('messages', this.contactForm.value);
+    /*this.router.navigateByUrl('/contactar', { skipLocationChange: true }).then(() => {
       this.router.navigate(['contactar']);
-    });
+    });*/
   }
 
   handleReset() {

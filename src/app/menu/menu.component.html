@@ -1,20 +1,5 @@
-<nav class="border fixed split-nav margin-nav">
-  <div class="nav-brand">
-    <h3><a routerLink="home" id="home-icon"><i class="fa fa-home"></i></a></h3>
-  </div>
-  <div class="collapsible">
-    <input id="collapsible1" type="checkbox" name="collapsible1">
-    <button>
-      <label for="collapsible1">
-        <div class="bar1"></div>
-        <div class="bar2"></div>
-        <div class="bar3"></div>
-      </label>
-    </button>
-    <div class="collapsible-body">
-      <ul class="inline">
-        <li *ngFor="let menu of menuPrincipal"><a routerLink="{{menu.nombre | lowercase}}" routerLinkActive="activado">{{menu.nombre | titlecase}}</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+<ul *ngIf="menuPrincipal" id="menu-list">
+  <li *ngFor="let menu of menuPrincipal">
+    <a  routerLink="{{menu.nombre | lowercase}}" routerLinkActive="activado">{{menu.nombre | titlecase}}</a>
+  </li>
+</ul>

@@ -1,5 +1,5 @@
-<div class="card border fixed text-center" >
-  <img id="img-profile" class=" margin-auto" *ngIf="profile.imagen" src="../../assets/images/{{profile.imagen}}" alt="{{profile.name}}">
+<div class="" >
+  <img id="img-profile" class="" *ngIf="profile.imagen" src="../../assets/images/{{profile.imagen}}" alt="{{profile.name}}">
   <div class="card-body margin-bottom-none">
     <h4 class="card-title">¡Hola soy</h4>
     <h4 class="card-title">{{profile.name}}!</h4>
@@ -7,8 +7,8 @@
     <p class="card-text">{{profile.sobreMi}}</p>
     <h6 class="card-subtitle text-center"><a href="mailto:{{profile.email}}">{{profile.email}}</a></h6>
   </div>
-  <div class="margin-top-negativo">
-    <ul id="lista-iconos">
+  <div class="">
+    <ul *ngIf="redes" id="lista-iconos">
       <li *ngFor="let redSocial of redes">
         <a href="{{redSocial.enlace}}" target="_blank">
           <img class="img-redes" *ngIf="redSocial.nombre" src="./../../assets/images/{{redSocial.nombre | lowercase }}-dark.svg" alt="{{redSocial.nombre}}">

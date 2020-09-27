@@ -42,13 +42,6 @@ button:hover {
   width: auto !important;
 }
 
-.article {
-  padding-left: 40px;
-  padding-bottom: 50px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
 h1, h2, h3, h4, h5 {
   display: block;
   margin-top: auto;
@@ -59,10 +52,6 @@ h4, h5 {
   display: block;
   margin-top: auto;
   margin-bottom: 0;
-}
-
-.margin-top-negativo {
-  margin-top: -50px;
 }
 
 #lista-iconos{
@@ -87,19 +76,50 @@ h4, h5 {
 }
 
 #img-home{
-  width: 50%;
-}
-
-.text-area-form{
   width: 100%;
-  height: 150px;
-  line-height: normal ;
-  vertical-align: text-top;
-  padding-top: 10px;
 }
 
 .invalid-feedback {
   font-size: small;
   color: crimson;
   padding: 3px;
+}
+
+.input-contacto {
+  width: 100%;
+}
+
+ul#menu-list li{
+  list-style-type: none;
+}
+
+@media screen and (min-width: 875px) {
+  /* Se aplica a resoluciones mayores de 875px */
+ .contenedor-principal{
+   display: inline-flex;
+   justify-content: center;
+
+ }
+ .perfil{
+   justify-self: flex-start;
+   max-width: 25%;
+ }
+ .contenido{
+   justify-self: flex-end;
+   max-width: 75%;
+ }
+}
+
+@media screen and (max-width: 875px) {
+  /* Se aplica a resoluciones menores de 875px */
+  .contenedor-principal{
+    display: inline-table;
+  }
+
+  .perfil{
+    max-width: 100%;
+  }
+  .contenido{
+    max-width: 100%;
+  }
 }
